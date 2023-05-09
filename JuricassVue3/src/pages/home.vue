@@ -1,6 +1,6 @@
 <template>
   <div v-if="isLoading">
-    <v-progress-circular model-value="20" indeterminate></v-progress-circular>
+    <skeleton-loader />
   </div>
   <div v-else>
     <div v-if="searchResult && searchResult.results">
@@ -18,6 +18,7 @@
 import { onMounted, ref } from 'vue'
 import { search, searchResult, isLoading } from '@/controllers/homeController'
 import SearchResultDisplayer from '@comps/SearchResultDisplayer.vue'
+import SkeletonLoader from '@comps/common/SkeletonLoader.vue'
 
 const status = ref({})
 onMounted(async () => {
