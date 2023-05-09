@@ -11,6 +11,7 @@
     </v-app-bar>
 
     <v-main>
+      <error-displayer />
       <v-container>
         <router-view> </router-view>
       </v-container>
@@ -18,7 +19,9 @@
   </v-layout>
 </template>
 
-<script setup></script>
+<script setup>
+import ErrorDisplayer from '@comps/ErrorDisplayer.vue'
+</script>
 
 <style scoped>
 .logo {
