@@ -2,6 +2,7 @@
   <h1>home</h1>
   <button @click="$router.push('decision')">go</button>
   <v-chip>{{ status.status }}</v-chip>
+  <h1>{{ $t('appName') }}</h1>
 </template>
 
 <script setup>
