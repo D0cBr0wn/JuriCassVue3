@@ -1,8 +1,16 @@
-<script setup></script>
-
 <template>
-  <router-view> </router-view>
+  <v-layout>
+    <v-app-bar :elevation="2">
+      <v-app-bar-title>Title</v-app-bar-title>
+      <template v-slot:prepend>
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      </template>
+    </v-app-bar>
+    <router-view> </router-view>
+  </v-layout>
 </template>
+
+<script setup></script>
 
 <style scoped>
 .logo {
