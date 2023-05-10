@@ -12,13 +12,20 @@
 
     <v-main>
       <v-container>
-        <router-view> </router-view>
+        <v-row justify="center">
+          <v-col class="v-col-lg-10">
+            <error-displayer />
+            <router-view> </router-view>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
   </v-layout>
 </template>
 
-<script setup></script>
+<script setup>
+import ErrorDisplayer from '@comps/ErrorDisplayer.vue'
+</script>
 
 <style scoped>
 .logo {

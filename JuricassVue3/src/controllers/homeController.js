@@ -1,5 +1,7 @@
 import { ref } from 'vue'
 import { searchApi, apiSearchResult } from '@/repositories/searchPageRepository'
+import { Error } from '@model/Error'
+import { errors } from '@/controllers/appController'
 
 export const searchResult = ref([])
 export const isLoading = ref(false)
@@ -13,6 +15,6 @@ export const search = async (query = 'propriété') => {
     searchResult.value = apiSearchResult.value
     isLoading.value = false
   } catch (error) {
-    error.value = error
+    errors.value.push(new Error({ message: error }))
   }
 }

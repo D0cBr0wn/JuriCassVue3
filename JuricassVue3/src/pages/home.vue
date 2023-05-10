@@ -10,8 +10,6 @@
       <h2>{{ $t('noResultFound') }}</h2>
     </div>
   </div>
-
-  <!-- <v-alert type="error" text="This is an error bro !"></v-alert> -->
 </template>
 
 <script setup>
@@ -25,3 +23,5 @@ onMounted(async () => {
   await search()
 })
 </script>
+
+<style></style>
