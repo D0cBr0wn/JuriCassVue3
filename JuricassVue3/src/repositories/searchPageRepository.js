@@ -6,6 +6,6 @@ export const apiSearchResult = ref({})
 const apiService = new JudilibreApiService()
 
 export const searchApi = async query => {
-  const result = await apiService.fetch(`search/?query=${query}&resolve_references=true`)
+  const result = await apiService.fetch(`searc/?query=${query}&resolve_references=true`)
   apiSearchResult.value = new SearchPage(result)
 }
