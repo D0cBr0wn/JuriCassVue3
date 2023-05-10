@@ -1,1 +1,6 @@
-{}
+{
+  "appName": "JuriCass Vue3",
+  "noResultFound": "Aucun resultat",
+  "anErrorOccured": "Une erreur est survenue !",
+  "readDecision": "Lire la décision"
+}
