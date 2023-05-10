@@ -1,4 +1,6 @@
 {
   "appName": "JuriCass Vue3",
-  "noResultFound": "No result found"
+  "noResultFound": "No result found",
+  "anErrorOccured": "An error occured !",
+  "read": "Read"
 }

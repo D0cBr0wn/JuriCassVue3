@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-app-bar :elevation="2">
+    <v-app-bar :elevation="2" class="bg-primary">
       <v-app-bar-title>{{ $t('appName') }}</v-app-bar-title>
       <template v-slot:prepend>
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import ErrorDisplayer from '@comps/ErrorDisplayer.vue'
+import ErrorDisplayer from '@comps/common/ErrorDisplayer.vue'
 </script>
 
 <style scoped>

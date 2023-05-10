@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoading">
+  <div v-if="isLoading && !errors.length">
     <skeleton-loader />
   </div>
   <div v-else>
@@ -14,11 +14,11 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
+import { errors } from '@/controllers/appController'
 import { search, searchResult, isLoading } from '@/controllers/homeController'
 import SearchResultDisplayer from '@comps/SearchResultDisplayer.vue'
 import SkeletonLoader from '@comps/common/SkeletonLoader.vue'
 
-const status = ref({})
 onMounted(async () => {
   await search()
 })
