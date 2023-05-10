@@ -7,7 +7,7 @@
     <v-card-text>{{ result.summary }}</v-card-text>
     <v-card-actions class="mt-4">
       <router-link :to="`/decision/${result.id}`">
-        <v-btn variant="elevated" class="bg-primary" size="large">{{ $t('read') }}</v-btn>
+        <v-btn variant="elevated" class="bg-primary">{{ $t('readDecision') }}</v-btn>
       </router-link>
     </v-card-actions>
     <v-chip-group class="themes">
