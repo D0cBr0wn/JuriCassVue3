@@ -5,7 +5,6 @@ import { errors } from '@/controllers/appController'
 
 export const searchResult = ref([])
 export const isLoading = ref(false)
-export const error = ref(undefined)
 
 export const search = async (query = 'propriété') => {
   try {

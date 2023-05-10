@@ -1,14 +1,7 @@
 <template>
   <div class="error-displayer">
-    <v-alert
-      v-for="error in errors"
-      class="error-message"
-      icon="mdi-skull-icon"
-      type="error"
-      elevation="5"
-      closable="true"
-    >
-      <v-alert-title>{{ 'titre' }}</v-alert-title>
+    <v-alert v-for="error in errors" class="error-message" icon="mdi-skull" type="error" elevation="5" closable="true">
+      <v-alert-title>{{ $t('anErrorOccured') }}</v-alert-title>
       {{ error.message }}
     </v-alert>
   </div>
