@@ -1,6 +1,16 @@
 <template>
   <div class="error-displayer">
-    <v-alert v-for="error in errors" type="error" text="error.message" class="error-message"></v-alert>
+    <v-alert
+      v-for="error in errors"
+      class="error-message"
+      icon="mdi-skull-icon"
+      type="error"
+      elevation="5"
+      closable="true"
+    >
+      <v-alert-title>{{ 'titre' }}</v-alert-title>
+      {{ error.message }}
+    </v-alert>
   </div>
 </template>
 
