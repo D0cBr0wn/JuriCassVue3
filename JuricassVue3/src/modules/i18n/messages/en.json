@@ -2,5 +2,6 @@
   "appName": "JuriCass Vue3",
   "noResultFound": "No result found",
   "anErrorOccured": "An error occured !",
-  "readDecision": "Read decision"
+  "readDecision": "Read decision",
+  "pourvoiNumber": "Pourvoi #"
 }

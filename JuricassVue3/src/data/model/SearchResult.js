@@ -10,7 +10,7 @@ export class SearchResult {
     this.ecli = data?.ecli
     this.formation = data?.formation
     this.publication = data?.publication
-    this.decisionDate = data?.decisionDate
+    this.decisionDate = data?.decision_date
     this.type = data?.type
     this.solution = data?.solution
     this.solutionAlt = data?.solutionAlt
