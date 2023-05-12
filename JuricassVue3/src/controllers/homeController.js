@@ -6,12 +6,13 @@ import { errors } from '@/controllers/appController'
 
 export const searchResult = ref({})
 export const isLoading = ref(false)
+export const query = ref('propriété')
 
-export const search = async (query = 'propriété') => {
+export const search = async () => {
   try {
     isLoading.value = true
     //TODO remove default value when API will be ready for home query
-    let result = await searchApi(query)
+    let result = await searchApi(query.value)
     // a true adapter implementation would have been a better approach, but it's a small demo project
     // We should also instanciate every object prop but I just really need Decision here
     result.results = result.results.map(r => new SearchResult(r))

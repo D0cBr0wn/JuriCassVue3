@@ -3,12 +3,28 @@
     <v-app-bar :elevation="2" class="bg-primary">
       <v-app-bar-title>{{ $t('appName') }}</v-app-bar-title>
       <template v-slot:prepend>
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       </template>
-      <v-btn icon>
+      <v-text-field
+        v-model="query"
+        rounded
+        flat
+        clearable
+        variant="solo"
+        hide-details
+        density="compact "
+        :label="$t('quickSearch')"
+      ></v-text-field>
+      <v-btn icon @click="search()">
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
     </v-app-bar>
+
+    <v-navigation-drawer v-model="drawer">
+      <v-list>
+        <v-list-item title="Navigation drawer"></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
     <v-main>
       <v-container>
@@ -24,7 +40,11 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import ErrorDisplayer from '@comps/common/ErrorDisplayer.vue'
+import { query, search } from '@/controllers/homeController'
+
+let drawer = ref(false)
 </script>
 
 <style scoped>
