@@ -28,6 +28,10 @@ export default defineConfig({
         replacement: path.resolve(__dirname, 'src/data/model')
       },
       {
+        find: '@fixtures',
+        replacement: path.resolve(__dirname, 'src/data/fixtures')
+      },
+      {
         find: '@comps',
         replacement: path.resolve(__dirname, 'src/components')
       }

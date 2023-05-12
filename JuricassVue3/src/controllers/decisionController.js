@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { getDecisionApi, apiDecision } from '@/repositories/decisionRepository'
+import { getDecisionApi } from '@/repositories/decisionRepository'
 import { Error } from '@model/Error'
 import { Zone } from '@model/Zone'
 import { errors } from '@/controllers/appController'
@@ -10,13 +10,12 @@ export const isLoading = ref(false)
 export const getDecision = async id => {
   try {
     isLoading.value = true
-    await getDecisionApi(id)
-    decision.value = apiDecision.value
+    let result = await getDecisionApi(id)
     // a true adapter implementation would have been a better approach, but it's a small demo project
     // We should also instanciate every object prop but I just really need Zones here
-    if (decision.value.zones) {
+    if (result && result.zones) {
       let instantiatedZones = []
-      for (const [key, value] of Object.entries(decision.value.zones)) {
+      for (const [key, value] of Object.entries(result.zones)) {
         value.forEach(segment => {
           const zone = new Zone({
             name: key,
@@ -28,8 +27,10 @@ export const getDecision = async id => {
       }
       // zones are not sorted by the API so we need to do it here
       instantiatedZones.sort((a, b) => (a.end > b.end ? 1 : -1))
-      decision.value.zones = instantiatedZones
+      result.zones = instantiatedZones
     }
+
+    decision.value = result
 
     isLoading.value = false
   } catch (error) {
