@@ -1,2 +1,2 @@
 import { ref } from 'vue'
-export const errors = ref([])
+export let errors = ref([])

@@ -3,5 +3,11 @@
   "noResultFound": "No result found",
   "anErrorOccured": "An error occured !",
   "readDecision": "Read decision",
-  "pourvoiNumber": "Pourvoi #"
+  "pourvoiNumber": "Pourvoi #",
+  "quickSearch": "Quick Search",
+  "search": "Search",
+  "exactSearch": "Exact expression",
+  "startDate": "Start date",
+  "endDate": "End date",
+  "resultsFor": "Results for :"
 }

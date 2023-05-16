@@ -6,7 +6,7 @@
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       </template>
       <v-text-field
-        v-model="query"
+        v-model="quickQuery"
         rounded
         flat
         clearable
@@ -20,9 +20,11 @@
       </v-btn>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer">
+    <v-navigation-drawer v-model="drawer" :width="280" class="nav">
+      <search-form />
+      <hr />
       <v-list>
-        <v-list-item title="Navigation drawer"></v-list-item>
+        <v-list-item title="Navigation will be there"></v-list-item>
       </v-list>
     </v-navigation-drawer>
 
@@ -42,22 +44,14 @@
 <script setup>
 import { ref } from 'vue'
 import ErrorDisplayer from '@comps/common/ErrorDisplayer.vue'
-import { query, search } from '@/controllers/homeController'
+import { quickQuery, search } from '@/controllers/homeController'
+import SearchForm from '@comps/SearchForm.vue'
 
 let drawer = ref(false)
 </script>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+<style lang="scss">
+.nav {
+  padding: 0.5rem;
 }
 </style>

@@ -10,6 +10,10 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
+// DatePicker
+import VueDatePicker from '@vuepic/vue-datepicker'
+import '@vuepic/vue-datepicker/dist/main.css'
+
 const juriCassDarkTheme = {
   dark: true,
   colors: {
@@ -38,4 +42,5 @@ const app = createApp(App)
 app.use(router)
 app.use(i18n)
 app.use(vuetify)
+app.component('VueDatePicker', VueDatePicker)
 app.mount('#app')
