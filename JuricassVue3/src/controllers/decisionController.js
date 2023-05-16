@@ -4,8 +4,8 @@ import { Error } from '@model/Error'
 import { Zone } from '@model/Zone'
 import { errors } from '@/controllers/appController'
 
-export const decision = ref({})
-export const isLoading = ref(false)
+export let decision = ref({})
+export let isLoading = ref(false)
 
 export const getDecision = async id => {
   try {
