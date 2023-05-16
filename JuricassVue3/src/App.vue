@@ -3,7 +3,7 @@
     <v-app-bar :elevation="2" class="bg-primary">
       <v-app-bar-title>{{ $t('appName') }}</v-app-bar-title>
       <template v-slot:prepend>
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click.stop="popDrawer = !popDrawer"></v-app-bar-nav-icon>
       </template>
       <v-text-field
         v-model="quickQuery"
@@ -20,7 +20,7 @@
       </v-btn>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" :width="280" class="nav">
+    <v-navigation-drawer v-model="popDrawer" :width="280" class="nav">
       <search-form />
       <hr />
       <v-list>
@@ -42,12 +42,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import ErrorDisplayer from '@comps/common/ErrorDisplayer.vue'
-import { quickQuery, search } from '@/controllers/homeController'
+import { quickQuery, search, popDrawer } from '@/controllers/homeController'
 import SearchForm from '@comps/SearchForm.vue'
-
-let drawer = ref(false)
 </script>
 
 <style lang="scss">

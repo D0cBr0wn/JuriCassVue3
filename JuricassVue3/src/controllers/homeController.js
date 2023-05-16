@@ -11,6 +11,8 @@ export let query = ref(undefined)
 export let exact = ref(false)
 export let startDate = ref(undefined)
 export let endDate = ref(undefined)
+export let popDrawer = ref(false)
+
 let queryObj = ref({ query: query?.value ?? quickQuery.value })
 
 export const search = async () => {
@@ -22,6 +24,7 @@ export const search = async () => {
     // We should also instanciate every object prop but I just really need Decision here
     result.results = result.results.map(r => new SearchResult(r))
     searchResult.value = result
+    if (searchResult.value.results.length) popDrawer.value = false
     isLoading.value = false
   } catch (error) {
     errors.value.push(new Error({ message: error }))
