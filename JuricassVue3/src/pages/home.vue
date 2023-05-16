@@ -3,8 +3,8 @@
     <skeleton-loader />
   </div>
   <div v-else>
-    <h2 v-if="query">{{ $t('resultsFor') }} "{{ query }}"</h2>
-    <div v-if="searchResult && searchResult.results">
+    <h2 v-if="query && searchResult !== {}">{{ $t('resultsFor') }} "{{ searchResult.query.query }}"</h2>
+    <div v-if="searchResult && searchResult.results.length">
       <search-result-displayer v-for="result in searchResult.results" :key="result.id" :result="result" />
     </div>
     <div v-else>
@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { errors } from '@/controllers/appController'
 import { search, searchResult, isLoading, query } from '@/controllers/homeController'
 import SearchResultDisplayer from '@comps/SearchResultDisplayer.vue'
