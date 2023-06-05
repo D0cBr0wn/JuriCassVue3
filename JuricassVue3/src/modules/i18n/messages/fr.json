@@ -3,5 +3,11 @@
   "noResultFound": "Aucun resultat",
   "anErrorOccured": "Une erreur est survenue !",
   "readDecision": "Lire la décision",
-  "pourvoiNumber": "Pourvoi n°"
+  "pourvoiNumber": "Pourvoi n°",
+  "quickSearch": "Recherche rapide",
+  "search": "Rechercher",
+  "exactSearch": "Expression exacte",
+  "startDate": "Date de début",
+  "endDate": "Date de fin",
+  "resultsFor": "Résultats pour : "
 }

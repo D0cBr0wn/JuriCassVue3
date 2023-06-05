@@ -4,7 +4,7 @@ import { Error } from '@model/Error'
 import { SearchResult } from '@model/SearchResult'
 import { errors } from '@/controllers/appController'
 
-export let searchResult = ref({})
+export let searchResult = ref(new SearchResult({}))
 export let isLoading = ref(false)
 export let quickQuery = ref('propriété')
 export let query = ref(undefined)

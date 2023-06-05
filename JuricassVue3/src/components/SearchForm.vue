@@ -14,8 +14,7 @@
       block
       color="primary"
       append-icon="mdi-magnify"
-      :disabled="isLoading"
-      :loading="isLoading"
+      :loading="isLoading && !errors.length"
     >
       {{ $t('search') }}
     </v-btn>
@@ -25,6 +24,7 @@
 <script setup>
 import { query, exact, startDate, endDate, handleSearch, isLoading } from '@/controllers/homeController'
 import datePicker from '@comps/common/DatePicker.vue'
+import { errors } from '@/controllers/appController'
 </script>
 
 <style lang="scss" scoped>
