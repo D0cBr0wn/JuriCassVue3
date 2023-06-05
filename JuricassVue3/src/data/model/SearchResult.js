@@ -18,6 +18,7 @@ export class SearchResult {
     this.bulletin = data?.bulletin
     this.files = data?.files
     this.themes = data?.themes
+    this.results = data?.results ?? []
   }
 
   get formattedDecisionDate() {

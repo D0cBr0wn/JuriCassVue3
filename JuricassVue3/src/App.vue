@@ -12,7 +12,7 @@
         clearable
         variant="solo"
         hide-details
-        density="compact "
+        density="compact"
         :label="$t('quickSearch')"
       ></v-text-field>
       <v-btn icon @click="search()">
