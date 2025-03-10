@@ -1,0 +1,6 @@
+{
+  "i18n-ally.localesPaths": [
+    "JuricassVue3/src/modules/i18n",
+    "JuricassVue3/src/modules/i18n/messages"
+  ]
+}
