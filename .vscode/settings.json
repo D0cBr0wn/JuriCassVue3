@@ -2,5 +2,48 @@
   "i18n-ally.localesPaths": [
     "JuricassVue3/src/modules/i18n",
     "JuricassVue3/src/modules/i18n/messages"
-  ]
+  ],
+  "files.autoSave": "onFocusChange",
+
+  "i18n-ally.keystyle": "nested",
+
+  //editor
+  "editor.formatOnSave": true,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.renderWhitespace": "all",
+  "editor.linkedEditing": true,
+  "editor.suggest.insertMode": "replace",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  //files
+
+  //workbench
+  "workbench.tree.indent": 12,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.editor.enablePreview": false,
+  "emmet.triggerExpansionOnTab": true,
+  "workbench.colorTheme": "Tokyo Night",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  //i18n-ally
+  "i18n-ally.enabledFrameworks": ["vue"],
+  "i18n-ally.enabledParsers": ["js", "ts", "json"],
+  "i18n-ally.extract.autoDetect": true,
+  "i18n-ally.keepFulfilled": true,
+  "i18n-ally.editor.preferEditor": true,
+  "git.openRepositoryInParentFolders": "never",
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "remote.autoForwardPortsSource": "hybrid",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.hideUnchangedRegions.enabled": true
 }

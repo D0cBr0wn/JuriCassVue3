@@ -1,0 +1,50 @@
+import { createApp } from 'vue'
+import './style.css'
+import App from './App.vue'
+import router from '@/modules/router'
+import i18n from '@/modules/i18n'
+import { createPinia } from 'pinia'
+
+// Vuetify
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+
+// DatePicker
+import VueDatePicker from '@vuepic/vue-datepicker'
+import '@vuepic/vue-datepicker/dist/main.css'
+
+const juriCassDarkTheme = {
+  dark: true,
+  colors: {
+    background: '#212121',
+    surface: '#212121',
+    primary: '#731F1F',
+    'primary-light': '#872E26',
+    secondary: '#A68A56',
+    'secondary-light': '#D9BC66'
+  }
+}
+
+const vuetify = createVuetify({
+  components,
+  directives,
+  theme: {
+    defaultTheme: 'juriCassDarkTheme',
+    themes: {
+      juriCassDarkTheme
+    }
+  }
+})
+
+const app = createApp(App)
+// Use Pinia plugin first
+const pinia = createPinia()
+app.use(pinia)
+//app.use([vuetify, router])
+app.use(router)
+app.use(i18n)
+app.use(vuetify)
+app.component('VueDatePicker', VueDatePicker)
+app.mount('#app')

@@ -11,7 +11,7 @@
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { errors } from '@/controllers/appController'
-import { getDecision, decision, isLoading } from '@/controllers/decisionController'
+import { getDecision, decision, isLoading } from '@/controllers/decisionController.ts'
 import SkeletonLoader from '@comps/common/SkeletonLoader.vue'
 import DecisionDisplayer from '@comps/DecisionDisplayer.vue'
 const route = useRoute()

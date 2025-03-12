@@ -25,7 +25,7 @@ export class JudilibreApiService {
       body = JSON.stringify(data)
       headers['content-type'] = 'application/json'
 
-      const res = await fetch(this.baseUrl + url, { method, headers, body })
+      const res = await fetch(`${this.baseUrl}/${url}`, { method, headers, body })
       return await this.handleResponseServer(res)
     } catch (error) {
       throw error
