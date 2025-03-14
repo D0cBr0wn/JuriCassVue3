@@ -33,7 +33,7 @@ export class SearchPage {
       page: apiData.page,
       pageSize: apiData.page_size,
       query: new SearchQuery(apiData.query),
-      results: apiData.results.map(r => Decision.adaptFromApi(r)), // Consider mapping results if needed
+      results: apiData.results.map(r => Decision.adaptFromApi(r)),
       total: apiData.total,
       previousPage: apiData.previous_page,
       nextPage: apiData.next_page,

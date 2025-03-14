@@ -1,6 +1,13 @@
 <template>
   <div class="error-displayer">
-    <v-alert v-for="error in errors" class="error-message" icon="mdi-skull" type="error" elevation="5" closable="true">
+    <v-alert
+      v-for="error in errors"
+      class="error-message"
+      icon="mdi-skull"
+      type="error"
+      elevation="5"
+      closable="true"
+    >
       <v-alert-title>{{ $t('anErrorOccured') }}</v-alert-title>
       {{ error.message }}
     </v-alert>
@@ -8,7 +15,9 @@
 </template>
 
 <script setup>
-import { errors } from '@/controllers/appController'
+import { useApp } from '@/composables/appComposable'
+
+const { errors } = useApp()
 </script>
 
 <style lang="scss" scoped>

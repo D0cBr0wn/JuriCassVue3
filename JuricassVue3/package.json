@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test:unit": "jest -u"
+    "test": "vitest"
   },
   "dependencies": {
     "@vuepic/vue-datepicker": "^11.0.1",

@@ -27,6 +27,7 @@ export const useSearchStore = defineStore('search', () => {
       queryString += '&resolve_references=true'
 
       const result = await apiService.fetch(`search/${queryString}`)
+
       searchResults.value = new ApiSearchPage(result)
       return searchResults.value
     } catch (err) {

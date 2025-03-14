@@ -1,8 +1,15 @@
-import { SearchPage } from '@model/SearchPage'
-import { SearchQuery } from '@model/SearchQuery'
-import { createSearchResultFixture } from '@fixtures/SearchResultFixture'
+import { SearchPage } from '../model/SearchPage'
+import { SearchQuery } from '../model/SearchQuery'
+import { createSearchResultFixture } from './SearchResultFixture'
+import { Decision } from '../model/Decision'
 
-export const createSearchPageFixture = ({ results = [createSearchResultFixture()] } = {}) => {
+interface SearchPageFixtureOptions {
+  results?: Decision[]
+}
+
+export const createSearchPageFixture = ({
+  results = [createSearchResultFixture()]
+}: SearchPageFixtureOptions = {}): SearchPage => {
   return new SearchPage({
     page: 0,
     pageSize: 10,
@@ -22,6 +29,6 @@ export const createSearchPageFixture = ({ results = [createSearchResultFixture()
   })
 }
 
-export function createSearchPageNoResultsFixture() {
+export const createSearchPageNoResultsFixture = (): SearchPage => {
   return createSearchPageFixture({ results: [] })
 }

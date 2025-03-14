@@ -10,11 +10,14 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { errors } from '@/controllers/appController'
-import { getDecision, decision, isLoading } from '@/controllers/decisionController.ts'
+import { useApp } from '@/composables/appComposable'
+import { useDecision } from '@/composables/decisionComposable'
 import SkeletonLoader from '@comps/common/SkeletonLoader.vue'
 import DecisionDisplayer from '@comps/DecisionDisplayer.vue'
+
 const route = useRoute()
+const { errors } = useApp()
+const { decision, isLoading, getDecision } = useDecision()
 
 onMounted(async () => {
   await getDecision(route.params.id)

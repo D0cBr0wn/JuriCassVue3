@@ -5,7 +5,7 @@ import { SearchHighlight } from './SearchHighlight'
 export class Decision {
   id: string
   score: number | null
-  highlights?: SearchHighlight[]
+  highlights?: SearchHighlight
   jurisdiction: string
   chamber: string
   number: string
@@ -25,7 +25,7 @@ export class Decision {
   constructor(data?: Partial<Decision> | null) {
     this.id = data?.id ?? ''
     this.score = data?.score ?? null
-    this.highlights = data?.highlights ? data.highlights.map(h => new SearchHighlight(h)) : undefined
+    this.highlights = data?.highlights ? new SearchHighlight(data.highlights) : undefined
     this.jurisdiction = data?.jurisdiction ?? ''
     this.chamber = data?.chamber ?? ''
     this.number = data?.number ?? ''
@@ -47,9 +47,7 @@ export class Decision {
     return new Decision({
       id: apiDecision.id,
       score: apiDecision.score ?? null,
-      highlights: apiDecision?.highlights
-        ? apiDecision.highlights.map(h => SearchHighlight.adaptFromApi(h))
-        : undefined,
+      highlights: apiDecision?.highlights ? SearchHighlight.adaptFromApi(apiDecision.highlights) : undefined,
       jurisdiction: apiDecision.jurisdiction,
       chamber: apiDecision.chamber,
       number: apiDecision.number,

@@ -1,5 +1,6 @@
-import { SearchResult } from '@model/SearchResult'
-export const createSearchResultFixture = () => {
+import { SearchResult } from '../model/SearchResult'
+
+export const createSearchResultFixture = (): SearchResult => {
   return new SearchResult({
     score: 666.666,
     id: 'hdjzhsjshsjs',

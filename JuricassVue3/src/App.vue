@@ -1,6 +1,9 @@
 <template>
   <v-layout>
-    <v-app-bar :elevation="2" class="bg-primary">
+    <v-app-bar
+      :elevation="2"
+      class="bg-primary"
+    >
       <v-app-bar-title>{{ $t('appName') }}</v-app-bar-title>
       <template v-slot:prepend>
         <v-app-bar-nav-icon @click.stop="popDrawer = !popDrawer"></v-app-bar-nav-icon>
@@ -15,12 +18,19 @@
         density="compact"
         :label="$t('quickSearch')"
       ></v-text-field>
-      <v-btn icon @click="search()">
+      <v-btn
+        icon
+        @click="search()"
+      >
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="popDrawer" :width="280" class="nav">
+    <v-navigation-drawer
+      v-model="popDrawer"
+      :width="280"
+      class="nav"
+    >
       <search-form />
       <hr />
       <v-list>
@@ -43,8 +53,10 @@
 
 <script setup>
 import ErrorDisplayer from '@comps/common/ErrorDisplayer.vue'
-import { quickQuery, search, popDrawer } from '@/controllers/homeController'
+import { useHome } from '@/composables/homeComposable'
 import SearchForm from '@comps/SearchForm.vue'
+
+const { quickQuery, search, popDrawer } = useHome()
 </script>
 
 <style lang="scss">
