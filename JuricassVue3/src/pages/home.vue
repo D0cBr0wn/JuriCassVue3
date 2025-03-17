@@ -32,7 +32,6 @@ const { getHealth } = useHealth()
 onMounted(async () => {
   await getHealth()
   await search()
-  console.warn(searchResults.value)
 })
 </script>
 

@@ -1,6 +1,7 @@
 import { ref, Ref } from 'vue'
 import { useSearchStore } from '@/stores/searchStore'
 import { useApp } from './appComposable'
+import { useNotification } from './notificationComposable'
 import { SearchPage } from '@/data/model/SearchPage'
 
 interface SearchQuery {
@@ -13,6 +14,7 @@ interface SearchQuery {
 export const useHome = () => {
   const searchStore = useSearchStore()
   const { addError } = useApp()
+  const { showNotification } = useNotification()
 
   const searchResults: Ref<SearchPage> = ref(new SearchPage({}))
   const isLoading: Ref<boolean> = ref(false)
@@ -32,9 +34,9 @@ export const useHome = () => {
       if (apiResult) {
         try {
           searchResults.value = SearchPage.adaptFromApi(apiResult)
-          console.warn(searchResults.value)
         } catch (error) {
           console.error(error)
+          showNotification(error instanceof Error ? error.message : String(error))
         }
       }
 
@@ -44,8 +46,11 @@ export const useHome = () => {
     } catch (error) {
       if (error instanceof Error) {
         addError(error)
+        showNotification(error.message)
       } else {
-        addError(String(error))
+        const errorMessage = String(error)
+        addError(errorMessage)
+        showNotification(errorMessage)
       }
     } finally {
       isLoading.value = false

@@ -1,9 +1,11 @@
 import { useHealthStore } from '@/stores/healthStore'
 import { useApp } from './appComposable'
+import { useNotification } from './notificationComposable'
 
 export const useHealth = () => {
   const healthStore = useHealthStore()
   const { addError } = useApp()
+  const { showNotification } = useNotification()
 
   const getHealth = async () => {
     try {
@@ -11,8 +13,11 @@ export const useHealth = () => {
     } catch (error) {
       if (error instanceof Error) {
         addError(error)
+        showNotification(error.message)
       } else {
-        addError(String(error))
+        const errorMessage = String(error)
+        addError(errorMessage)
+        showNotification(errorMessage)
       }
       return null
     }

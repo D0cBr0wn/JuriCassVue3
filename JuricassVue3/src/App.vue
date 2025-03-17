@@ -48,13 +48,20 @@
         </v-row>
       </v-container>
     </v-main>
+
+    <notification />
   </v-layout>
 </template>
 
 <script setup>
 import ErrorDisplayer from '@comps/common/ErrorDisplayer.vue'
+import Notification from '@comps/common/Notification.vue'
 import { useHome } from '@/composables/homeComposable'
 import SearchForm from '@comps/SearchForm.vue'
+import { useNotification } from '@/composables/notificationComposable'
+
+// Initialize notification state at the root level
+useNotification()
 
 const { quickQuery, search, popDrawer } = useHome()
 </script>

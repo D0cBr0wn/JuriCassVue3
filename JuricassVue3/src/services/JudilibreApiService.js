@@ -28,6 +28,7 @@ export class JudilibreApiService {
       const res = await fetch(`${this.baseUrl}/${url}`, { method, headers, body })
       return await this.handleResponseServer(res)
     } catch (error) {
+      console.error(error)
       throw error
     }
   }

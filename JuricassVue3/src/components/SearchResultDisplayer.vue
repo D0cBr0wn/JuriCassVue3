@@ -1,5 +1,8 @@
 <template>
-  <v-card v-if="result" class="search-result">
+  <v-card
+    v-if="result"
+    class="search-result"
+  >
     <v-card-title
       >{{ result.formattedDecisionDate }} - {{ result.jurisdiction }} - {{ $t('pourvoiNumber') }}
       {{ result.number }}</v-card-title
@@ -8,24 +11,42 @@
     <v-card-subtitle>{{ result.formation }}</v-card-subtitle>
     <v-card-text>{{ result.summary }}</v-card-text>
     <v-card-actions class="mt-4 justify-end">
-      <v-btn @click="router.push(`/decision/${result.id}`)" variant="elevated" class="bg-primary">{{
-        $t('readDecision')
-      }}</v-btn>
-      <v-btn icon="mdi-heart-outline"></v-btn>
+      <v-btn
+        @click="router.push(`/decision/${result.id}`)"
+        variant="elevated"
+        class="bg-primary"
+        >{{ $t('readDecision') }}</v-btn
+      >
+      <v-btn
+        icon="mdi-heart-outline"
+        @click="addToFavorite"
+      ></v-btn>
     </v-card-actions>
     <v-chip-group class="themes">
-      <v-chip v-for="theme in result.themes" :key="theme" variant="outlined" class="text-secondary-light">{{
-        theme
-      }}</v-chip>
+      <v-chip
+        v-for="theme in result.themes"
+        :key="theme"
+        variant="outlined"
+        class="text-secondary-light"
+        >{{ theme }}</v-chip
+      >
     </v-chip-group>
   </v-card>
 </template>
 
 <script setup>
 import router from '@/modules/router'
+import { useNotification } from '@/composables/notificationComposable'
+
 const props = defineProps({
   result: { type: Object, default: () => {} }
 })
+
+const { showNotification } = useNotification()
+
+const addToFavorite = () => {
+  showNotification('La décision a bien été ajoutée aux favoris', 'success')
+}
 </script>
 
 <style lang="scss" scoped>

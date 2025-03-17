@@ -1,11 +1,13 @@
 import { ref, Ref } from 'vue'
 import { useDecisionStore } from '@/stores/decisionStore'
 import { useApp } from './appComposable'
+import { useNotification } from './notificationComposable'
 import { DecisionFull } from '@/data/model/DecisionFull'
 
 export const useDecision = () => {
   const decisionStore = useDecisionStore()
   const { addError } = useApp()
+  const { showNotification } = useNotification()
 
   const decision: Ref<DecisionFull> = ref(new DecisionFull())
   const isLoading: Ref<boolean> = ref(false)
@@ -21,8 +23,11 @@ export const useDecision = () => {
     } catch (error) {
       if (error instanceof Error) {
         addError(error)
+        showNotification(error.message)
       } else {
-        addError(String(error))
+        const errorMessage = String(error)
+        addError(errorMessage)
+        showNotification(errorMessage)
       }
     } finally {
       isLoading.value = false

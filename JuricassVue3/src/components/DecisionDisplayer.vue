@@ -8,7 +8,10 @@
         icon="mdi-arrow-left"
         @click="router.push(`/`)"
       ></v-btn>
-      <v-btn icon="mdi-heart-outline"></v-btn>
+      <v-btn
+        icon="mdi-heart-outline"
+        @click="addToFavorite"
+      ></v-btn>
     </template>
     <v-card-title
       >{{ decision.formattedDecisionDate }} - {{ decision.jurisdiction }} - {{ $t('pourvoiNumber') }}
@@ -30,9 +33,17 @@
 <script setup>
 import DecisionTextDisplayer from '@comps/DecisionTextDisplayer.vue'
 import router from '@/modules/router'
+import { useNotification } from '@/composables/notificationComposable'
+
 const props = defineProps({
   decision: { type: Object, default: () => {} }
 })
+
+const { showNotification } = useNotification()
+
+const addToFavorite = () => {
+  showNotification('La décision a bien été ajoutée au favoris', 'success')
+}
 
 console.warn(props.decision)
 </script>
