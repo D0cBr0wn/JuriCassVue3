@@ -6,6 +6,12 @@ import { createI18n } from 'vue-i18n'
 import fr from './locales/fr.json'
 import en from './locales/en.json'
 
+// locales
+const locales = [
+  { code: 'en-GB', iso: 'en-GB', name: 'English', shortName: 'en' },
+  { code: 'fr-FR', iso: 'fr-FR', name: 'Français', shortName: 'fr' }
+]
+
 // i18n Object
 
 const i18n = createI18n({
@@ -14,10 +20,7 @@ const i18n = createI18n({
   fallbackLocale: 'fr-FR',
   silentTranslationWarn: true,
   silentFallbackWarn: true,
-  locales: [
-    { code: 'en-GB', iso: 'en-GB', name: 'English' },
-    { code: 'fr-FR', iso: 'fr-FR', name: 'Français' }
-  ],
+  locales,
   messages: {
     'fr-FR': fr,
     'en-GB': en
@@ -26,7 +29,8 @@ const i18n = createI18n({
 })
 
 // Export locale, availableLocales, fallbackLocale and t from i18n, watch locale value
-export const { locale, availableLocales, fallbackLocale, t } = i18n.global
+export const { locale, fallbackLocale, t } = i18n.global
+export { locales }
 
 // Default export is i18n Object
 export default i18n

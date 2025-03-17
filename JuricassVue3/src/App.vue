@@ -4,6 +4,14 @@
       :elevation="2"
       class="bg-primary"
     >
+      <div class="language-selector">
+        <v-btn
+          variant="plain"
+          v-for="locale in locales"
+          @click="changeLanguage(locale.code)"
+          >{{ locale.shortName }}</v-btn
+        >
+      </div>
       <v-app-bar-title>{{ $t('appName') }}</v-app-bar-title>
       <template v-slot:prepend>
         <v-app-bar-nav-icon @click.stop="popDrawer = !popDrawer"></v-app-bar-nav-icon>
@@ -59,11 +67,16 @@ import Notification from '@comps/common/Notification.vue'
 import { useHome } from '@/composables/homeComposable'
 import SearchForm from '@comps/SearchForm.vue'
 import { useNotification } from '@/composables/notificationComposable'
-
+import { locales, locale } from '@/modules/i18n'
 // Initialize notification state at the root level
 useNotification()
 
 const { quickQuery, search, popDrawer } = useHome()
+
+const changeLanguage = newLocale => {
+  locale.value = newLocale
+  localStorage.setItem('user-locale', newLocale)
+}
 </script>
 
 <style lang="scss">
